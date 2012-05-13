@@ -13,7 +13,6 @@ pickle.dump(data, picklefile)
 jsondata.close()
 picklefile.close()
 
-
 #pickledict;
 # build a python dictionary of each key+value pair
 #picklefile = open('filename.pkl', 'wb') # how do we choose a filename?
