@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Simple form</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.json.org/json2.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+ function submitJSON() {
+   var frm = $(document.form).submit();
+   var dat = JSON.stringify(frm.serializeArray());
+
+   alert("I am about to POST this:\n\n" + dat);
+
+   $.post(
+     "#",
+     dat,
+     function(data) {
+       alert("Response: " + data);
+     }
+   );
+ };
+</script>
+<form name="form" method="post">
+First name: <input type="text" name="firstname" /><br />
+Last name: <input type="text" name="lastname" /><br />
+
+<input type="checkbox" name="malaria" value="malaria" />Has malaria?
+<input type="submit" value="Submit" onclick="submitJSON()">
+</form>
+</body>
+</html>
