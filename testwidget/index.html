@@ -1,0 +1,74 @@
+<html>
+<head>
+
+<meta charset="utf-8" />
+<!--[if lt IE 9]>
+<script src="/static/js/html5.js"></script>
+<![endif]-->
+	<title>HR4E CDA Builder</title>
+   	<!--link rel="shortcut icon" href="static/favicon.ico" >
+   	<!--script type="text/javascript" src="static/js/jquery.min.js"></script>
+    	<!--script type="text/javascript" src="static/js/hr4e.js"></script>
+	<script type="text/javascript" src="static/js/jquery-1.7.1.min.js"></script> -->
+    	<link rel="stylesheet" type="text/css" href="static/css/super.css" />
+	<script type="text/javascript" src="static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="static/js/jquery-ui-1.8.18.custom.min.js"></script>
+	<script type="text/javascript" src="static/js/jquery.ui.nestedSortable.js"></script>
+	<script type="text/javascript" src="static/js/super.js"></script>
+	<script type="text/javascript" src="static/js/widgetmanager.js"></script>
+	<link type="text/css" href="static/css/flick/jquery-ui-1.8.18.custom.css" rel="stylesheet" />
+
+	<!--sliders-->
+	<style>
+		#demo-frame > div.demo { padding: 10px !important; }
+		</style>
+
+	<script>
+		$(function() {
+			$( "#slider" ).slider();
+		});
+	</script>
+
+	<!--selectable-->
+	<style>
+		#feedback { font-size: 1.4em; }
+		#selectable .ui-selecting { background: #FECA40; }
+		#selectable .ui-selected { background: #F39814; color: white; }
+		#selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+		#selectable li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+	</style>
+
+	<script>
+		$(function() {
+			$( "#selectable" ).selectable();
+		});
+	</script>
+
+
+
+
+</head>
+<body>
+
+<div class="demo">
+
+<div id="slider"></div>
+
+</div>
+
+<div class="demo">
+
+<ol id="selectable">
+	<li class="ui-widget-content">Item 1</li>
+	<li class="ui-widget-content">Item 2</li>
+	<li class="ui-widget-content">Item 3</li>
+	<li class="ui-widget-content">Item 4</li>
+	<li class="ui-widget-content">Item 5</li>
+	<li class="ui-widget-content">Item 6</li>
+	<li class="ui-widget-content">Item 7</li>
+</ol>
+
+</div>
+
+</body>
+</html>
