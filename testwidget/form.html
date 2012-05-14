@@ -9,9 +9,6 @@
  function submitJSON() {
    var frm = $(document.form).submit();
    var dat = JSON.stringify(frm.serializeArray());
-
-   alert("I am about to POST this:\n\n" + dat);
-
    $.post(
      "#",
      dat,
@@ -21,6 +18,12 @@
    );
  };
 </script>
+Instructions:<br>
+Run <tt>python simpleserver.py</tt><br>
+Access http://localhost:8000/forms.html<br>
+Fill stuff in below<br>
+Click submit<br>
+The server crashes but a file.pkl file has been created in your server dir.<br>
 <form name="form" method="post">
 First name: <input type="text" name="firstname" /><br />
 Last name: <input type="text" name="lastname" /><br />
