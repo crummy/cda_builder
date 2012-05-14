@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+
+  <style type="text/css">body{font:62.5% Verdana,Arial,sans-serif}</style>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="static/js/widgetmanager.js"></script>
+  <script type="text/javascript" src="static/js/demowidget.js"></script>
+
+    <style type="text/css">
+
+  .drg { background: silver; width: 100px; padding: 0.5em; text-align: center; }
+  ul, ul li { list-style: none; margin:0 ; padding: 0; }
+  #drplist li { width: 800px; height: 100%; margin: 1em; padding: 0 0 32px 0; background: lightgreen; }
+  .widgetcontainer {background-color: white; color: black; border: 2px; }
+
+    </style>
+    </head>
+  <body>
+
+  <div class="drg">
+  Drag me
+  </div>
+
+<div class="drg">
+Widget
+</div>
+
+
+  <hr>
+  <button>Click to add a droppable</button>
+
+  <ul id="drplist">
+  <li>Drop here<hr></li>
+  </ul>
+
+  <script>
+  $( ".drg" ).draggable({
+    revert: true
+  });
+
+  var drpOptions = {
+    drop: function(event, ui) {
+      $(this).append( ui.draggable.text() + "<div class='widgetcontainer'>SUP BITCHES" );
+      $(this).append(DemoWidget.name);
+      $(this).append("</div>" + "<br>");
+    }
+  };
+
+  $( "#drplist" ).children().droppable( drpOptions );
+
+  $( "button" ).button().click(function() {
+    $( "<li>Dynamic droppable<hr></li>" ).droppable( drpOptions ).appendTo( "#drplist" );
+  });
+
+</script>
+</body>
+</html>
+
