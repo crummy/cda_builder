@@ -6,18 +6,26 @@
 
   var drpOptions = {
     drop: function(event, ui) {
+      //$( "#dialog-form" ).dialog( "open" );
       var testwidget = new DemoWidget();
 
 
-      $(this).append( ui.draggable.text() + "<div class='widgetcontainer'>SUP BITCHES" );
-      $(this).append(testwidget.name);
-      var i = 0;
-      for(;i < testwidget.fields.length; ++i){
-      	$(this).append(testwidget.fields[i]);
-      }
 
+      
+      //adding the new widget to the proper section
+      statman.getStationByName($(this).attr("id")).wmanager.addWidget(testwidget);
+      
+	    $(this).append( ui.draggable.text() + "<div class='widgetcontainer'>" );
+	    //$(this).append(testwidget.name);
+	    var i = 0;
+	    statman.getStationByName($(this).attr("id")).wmanager.getWidgetByName(testwidget.name).name;
+	    var findWidget = statman.getStationByName($(this).attr("id")).wmanager.getWidgetByName(testwidget.name);
+	    for(;i < findWidget.fields.length; ++i){
+		$(this).append(findWidget.fields[i]);
+	    }
+      
+      	    $(this).append("</div>" + "<br>");
 
-      $(this).append("</div>" + "<br>");
     }
   };
 
@@ -78,16 +86,28 @@
 
 
 					bValid = bValid && checkRegexp( name, /^[a-z]([0-9a-z_])+$/i, "Username may consist of a-z, 0-9, underscores, begin with a letter." );
-					var test = name.val();
+					var stationName = name.val();
 					if ( bValid ) {
-						$( "#users tbody" ).append( "<tr>" +
-							"<td>" + name.val() + "</td>" +
-						"</tr>" );
+						
 						$( this ).dialog( "close" );
 
-						//$('#drplist').append("<li>" + test + "<hr /></li>").droppable( drpOptions );
-						$( "<li>" + test + "<hr /></li>" ).droppable( drpOptions ).appendTo( "#drplist" );
-						//$('div.mynav').append("<div id='mine'>"+mouse+"</div>");
+						$( "<li id=" + stationName + ">" + stationName + "<hr /></li>" ).droppable( drpOptions ).appendTo( "#drplist" );						
+						
+						//backend stuff done here
+						var newSection = new Station(stationName, new WidgetManager());
+						statman.addStation(newSection);
+						if(statman != null)
+						{
+							console.debug(stationName);
+							$( "#users tbody" ).append( "<tr>" +
+								"<td>" + statman.getStationByName(stationName).name + "</td>" +
+							"</tr>" );
+						} else
+						{
+							$( "#users tbody" ).append( "<tr>" +
+							"<td> ERROR: SECTION NOT ADDED!</td>" +
+							"</tr>" );
+						}
 					}
 				},
 				Cancel: function() {
