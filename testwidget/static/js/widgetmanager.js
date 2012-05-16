@@ -72,6 +72,16 @@ WidgetManager.prototype.removeWidget = function(widget)
 	}
 	return false;
 };
+WidgetManager.prototype.getWidgetByName = function(name)
+{
+	var cur = this.widgets;
+	while (cur)
+	{
+		if (cur.widget.name === name) { return cur.widget; }
+		else { cur = cur.next; }
+	}
+	return null;
+};
 WidgetManager.prototype.exportFields = function()
 {
 	var fields = [];
@@ -86,5 +96,5 @@ WidgetManager.prototype.exportFields = function()
 		}
 		cur = cur.next;
 	}
-	return JSON.stringify(fields);
+	return fields;
 };
