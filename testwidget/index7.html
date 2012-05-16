@@ -27,7 +27,7 @@
   <body>
 	<script>
 		var statman = new StationManager();
-		
+
 		var submitJSON = function() {
 			var dat = JSON.stringify(statman.exportStations());
 			//var dat = '{"Station1":["Placeholder Text 1","Placeholder Text 2","Placeholder Text 3","Placeholder Text 1","Placeholder Text 2","Placeholder Text 3"],"Station2":["Placeholder Text 1","Placeholder Text 2","Placeholder Text 3","Placeholder Text 1","Placeholder Text 2","Placeholder Text 3"]}';
@@ -38,6 +38,7 @@
 					alert("Response: " + data);
 				}
 			);
+			console.debug(stationName);
 			return false; // we make the post request in JS above, so no need for HTML to
 		};
 	</script>
@@ -88,7 +89,9 @@ Custom Widget
 
 <script type="text/javascript" src="static/js/sectioncreate.js"></script>
 <script type="text/javascript" src="static/js/basicinfowidget.js"></script>
-<button id="add-patient">Add Patient</button>
+
+
+<input type="button" value="Save Data" onclick="submitJSON()">
 
 </body>
 </html>
