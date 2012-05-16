@@ -8,36 +8,39 @@ class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         try:
             if (self.path.endswith("favicon.ico")):
-                pass
+                return
             f = open(curdir + sep + self.path)
-            self.sendPage("text/html", f.read())
+            body = f.read()
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.send_header("Content-length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
             f.close()
             return
         except IOError:
             self.send_error(404, 'File Not Found: %s' %self.path)
             
     def do_POST(self):
-        global rootnode
-        #try:
-        if self.headers.has_key('content-length'):
-            length = int(self.headers['content-length'])
-            self.dumpReq(self.rfile)
-        else:
-            self.dumpReq(None)
-            
-    def dumpReq(self, content):
-        print "content: %s" % (content)
-        jsondata = json.load(content)
-        picklefile = open('file.pkl', 'wb')
-        response = pickle.dump(jsondata, picklefile)
-        picklefile.close();
-        self.sendPage("text/html", "Success!")
-    def sendPage(self, type, body):
+        length = int(self.headers['content-length'])
+        content = self.rfile.read(length)
+        print "post content: %s" % (content)
+        try:
+            jsondata = json.loads(content)
+            picklefile = open('clinic.pkl', 'wb')
+            response = pickle.dump(jsondata, picklefile)
+            print "saved to clinic.pkl"
+            body = "Success!"
+            picklefile.close()
+        except ValueError:
+            print "unable to parse JSON"
+            body = "Failure."
         self.send_response(200)
-        self.send_header("Content-type", type)
+        self.send_header("Content-type", "text/html")
         self.send_header("Content-length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
+        return
 
 def main():
     try:
