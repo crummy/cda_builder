@@ -27,14 +27,19 @@
   <body>
 	<script>
 		var statman = new StationManager();
-		var stat1 = new Station("Station1", new WidgetManager());
-		stat1.wmanager.addWidget(new DemoWidget());
-		stat1.wmanager.addWidget(new DemoWidgetTwo());
-		statman.addStation(stat1);
-		var stat2 = new Station("Station2", new WidgetManager());
-		stat2.wmanager.addWidget(new DemoWidget());
-		stat2.wmanager.addWidget(new DemoWidgetTwo());
-		statman.addStation(stat2);
+		
+		var submitJSON = function() {
+			var dat = JSON.stringify(statman.exportStations());
+			//var dat = '{"Station1":["Placeholder Text 1","Placeholder Text 2","Placeholder Text 3","Placeholder Text 1","Placeholder Text 2","Placeholder Text 3"],"Station2":["Placeholder Text 1","Placeholder Text 2","Placeholder Text 3","Placeholder Text 1","Placeholder Text 2","Placeholder Text 3"]}';
+			$.post(
+				"#",
+				dat,
+				function(data) {
+					alert("Response: " + data);
+				}
+			);
+			return false; // we make the post request in JS above, so no need for HTML to
+		};
 	</script>
   <div class="basicinfowidget-drg">
   Name & Age & Weight
