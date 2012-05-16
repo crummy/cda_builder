@@ -10,7 +10,7 @@
    var dat = JSON.stringify(frm.serializeArray());
    //var dat = '{"Station1":["Placeholder Text 1","Placeholder Text 2","Placeholder Text 3","Placeholder Text 1","Placeholder Text 2","Placeholder Text 3"],"Station2":["Placeholder Text 1","Placeholder Text 2","Placeholder Text 3","Placeholder Text 1","Placeholder Text 2","Placeholder Text 3"]}';
    $.post(
-     "#",
+     "savepkl",
      dat,
      function(data) {
        alert("Response: " + data);
