@@ -13,9 +13,9 @@ var Widget_BasicInfo = function()
 {
 	var DWidget = new Widget();
 	DWidget.name = "Basic Information";
-	DWidget.addField("Age: 47 years");
-	DWidget.addField("Weight: 156 lbs");
-	DWidget.addField("Height: 6' 2''");
+	DWidget.addField("Age");
+	DWidget.addField("Weight");
+	DWidget.addField("Height");
 	
 	return DWidget;
 };
@@ -24,7 +24,8 @@ var Widget_PresentIllness = function()
 {
 	var DWidget = new Widget();
 	DWidget.name = "Present Illness";
-	DWidget.addField("Our patient is a 70 year old male referred for further asthma management.");
+	DWidget.addField("Malaria");
+	DWidget.addField("AIDS");
 	
 	return DWidget;
 };
@@ -35,7 +36,7 @@ var Widget_PastMedicalHistory = function()
 	DWidget.name = "Past Medical History";
 	DWidget.addField("Asthma");
 	DWidget.addField("Hypertension");
-	DWidget.addField("Osteoarthritis, right knee");
+	DWidget.addField("Osteoarthritis");
 	
 	return DWidget;
 };
@@ -44,10 +45,10 @@ var Widget_Medications = function()
 {
 	var DWidget = new Widget();
 	DWidget.name = "Medications";
-	DWidget.addField("Theodur 200mg BID");
-	DWidget.addField("Proventil inhaler 2 puffs QID PRN");
-	DWidget.addField("Prednisone 20mg qd");
-	DWidget.addField("HCTZ 25mg qd");
+	DWidget.addField("Theodur");
+	DWidget.addField("Proventil");
+	DWidget.addField("Prednisone");
+	DWidget.addField("HCTZ");
 	
 	return DWidget;
 };
@@ -56,8 +57,9 @@ var Widget_Allergies = function()
 {
 	var DWidget = new Widget();
 	DWidget.name = "Allergies";
-	DWidget.addField("Penicillin - Hives");
-	DWidget.addField("Aspirin - Wheezing");
+	DWidget.addField("Penicillin");
+	DWidget.addField("Aspirin");
+	DWidget.addField("Latex");
 	
 	return DWidget;
 };
@@ -66,8 +68,8 @@ var Widget_SocialHistory = function()
 {
 	var DWidget = new Widget();
 	DWidget.name = "Social History";
-	DWidget.addField("Smoking :: 1 PPD since 20 years old");
-	DWidget.addField("Alcohol :: Rarely");
+	DWidget.addField("Smoking");
+	DWidget.addField("Alcohol");
 	
 	return DWidget;
 };
@@ -76,9 +78,9 @@ var Widget_PhysicalExam = function()
 {
 	var DWidget = new Widget();
 	DWidget.name = "Physical Exam";
-	DWidget.addField("Skin :: Erythematous rash, palmar surface, left index finger.");
-	DWidget.addField("Lungs :: Clear with no wheeze. Good air flow.");
-	DWidget.addField("Cardiac :: RRR with no murmur, no S3, no S4.");
+	DWidget.addField("Skin");
+	DWidget.addField("Lungs");
+	DWidget.addField("Cardiac");
 	
 	return DWidget;
 };
@@ -88,8 +90,7 @@ var Widget_Labs = function()
 {
 	var DWidget = new Widget();
 	DWidget.name = "Labs";
-	DWidget.addField("CXR 02/03/1999: Hyperinflated. Normal cardiac silhouette, clear lungs.");
-	DWidget.addField("Peak Flow today: 260 l/m.");
+	DWidget.addField("Lab Reports Field");
 	
 	return DWidget;
 };
@@ -98,9 +99,7 @@ var Widget_Assessment = function()
 {
 	var DWidget = new Widget();
 	DWidget.name = "Assessment";
-	DWidget.addField("Asthma, with prior smoking history. Difficulty weaning off steroids. Will try gradual taper.");
-	DWidget.addField("Hypertension, well-controlled.");
-	DWidget.addField("Contact dermatitis on finger.");
+	DWidget.addField("Assessment Field");
 	
 	return DWidget;
 };
@@ -109,21 +108,15 @@ var Widget_Plan = function()
 {
 	var DWidget = new Widget();
 	DWidget.name = "Plan";
-	DWidget.addField("Complete PFTs with lung volumes.");
-	DWidget.addField("Chem-7");
-	DWidget.addField("Provide education material on inhaler usage and peak flow self-monitoring.");
-	DWidget.addField("Decrease prednisone to 20qOD alternating with 18qOD.");
-	DWidget.addField("Hydrocortisone cream to finger BID.");
-	DWidget.addField("RTC 1 week.");
-	
+	DWidget.addField("Plan Field");	
 	return DWidget;
 };
 
 var Widget_Signed = function()
 {
 	var DWidget = new Widget();
-	DWidget.name = "Signed by:";
-	DWidget.addField("Robert Dolin, MD April 8, 2000");
+	DWidget.name = "Signed By";
+	DWidget.addField("Signature");
 	
 	return DWidget;
 };

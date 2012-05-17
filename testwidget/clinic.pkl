@@ -1,19 +1,21 @@
 (dp0
-S'aefad'
+S'Demonstration'
 p1
 (lp2
-S'Age: 47 years'
+S'Age'
 p3
-aS'Weight: 156 lbs'
+aS'Weight'
 p4
-aS"Height: 6' 2''"
+aS'Height'
 p5
-aS'Our patient is a 70 year old male referred for further asthma management.'
-p6
 aS'Asthma'
-p7
+p6
 aS'Hypertension'
+p7
+aS'Osteoarthritis'
 p8
-aS'Osteoarthritis, right knee'
+aS'Smoking'
 p9
+aS'Alcohol'
+p10
 as.
