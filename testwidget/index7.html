@@ -30,9 +30,9 @@
 
 		var submitJSON = function() {
 			var dat = JSON.stringify(statman.exportStations());
-			//var dat = '{"Station1":["Placeholder Text 1","Placeholder Text 2","Placeholder Text 3","Placeholder Text 1","Placeholder Text 2","Placeholder Text 3"],"Station2":["Placeholder Text 1","Placeholder Text 2","Placeholder Text 3","Placeholder Text 1","Placeholder Text 2","Placeholder Text 3"]}';
+			console.log(dat);
 			$.post(
-				"#",
+				"savepkl",
 				dat,
 				function(data) {
 					alert("Response: " + data);
