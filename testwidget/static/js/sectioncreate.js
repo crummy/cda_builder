@@ -70,14 +70,14 @@
 			width: 350,
 			modal: true,
 			buttons: {
-				"Create an account": function() {
+				"Create section": function() {
 					var bValid = true;
 					allFields.removeClass( "ui-state-error" );
 
 					bValid = bValid && checkLength( name, "username", 3, 16 );
 
 
-					bValid = bValid && checkRegexp( name, /^[a-z]([0-9a-z_])+$/i, "Username may consist of a-z, 0-9, underscores, begin with a letter." );
+					bValid = bValid && checkRegexp( name, /^[a-z]([0-9a-z_])+$/i, "Section may consist of a-z, 0-9, underscores, begin with a letter." );
 					var test = name.val();
 					if ( bValid ) {
 						$( "#users tbody" ).append( "<tr>" +
