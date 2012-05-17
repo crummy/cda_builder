@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+
+  <style type="text/css">body{font:62.5% Verdana,Arial,sans-serif}</style>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="static/js/widgetmanager.js"></script>
+  <script type="text/javascript" src="static/js/demowidget.js"></script>
+  <script type="text/javascript" src="static/js/stationmanager.js"></script>
+
+
+
+    <style type="text/css">
+
+  .drg { background: silver; width: 100px; padding: 0.5em; text-align: center; }
+  .basicinfowidget-drg { background: silver; width: 100px; padding: 0.5em; text-align: center; }
+  ul, ul li { list-style: none; margin:0 ; padding: 0; }
+  #drplist li { width: 800px; height: 100%; margin: 1em; padding: 0 0 32px 0; background: lightgreen; }
+  .widgetcontainer {background-color: white; color: black; border: 2px; }
+
+    </style>
+    </head>
+  <body>
+	<script>
+		var statman = new StationManager();
+
+		var submitJSON = function() {
+			var dat = JSON.stringify(statman.exportStations());
+			//var dat = '{"Station1":["Placeholder Text 1","Placeholder Text 2","Placeholder Text 3","Placeholder Text 1","Placeholder Text 2","Placeholder Text 3"],"Station2":["Placeholder Text 1","Placeholder Text 2","Placeholder Text 3","Placeholder Text 1","Placeholder Text 2","Placeholder Text 3"]}';
+			$.post(
+				"#",
+				dat,
+				function(data) {
+					alert("Response: " + data);
+				}
+			);
+			return false; // we make the post request in JS above, so no need for HTML to
+		};
+	</script>
+  <div class="basicinfowidget-drg">
+  Name & Age & Weight
+  </div>
+<br />
+<div class="drg">
+Custom Widget
+</div>
+
+
+  <hr>
+
+
+  <ul id="drplist">
+
+  </ul>
+
+<div id="dialog-form" title="Create new user">
+	<p class="validateTips">All form fields are required.</p>
+
+	<form>
+	<fieldset>
+		<label for="name">Name</label>
+		<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
+	</fieldset>
+	</form>
+</div>
+
+
+<div id="users-contain" class="ui-widget">
+	<h1>Existing Sections:</h1>
+	<table id="users" class="ui-widget ui-widget-content">
+		<thead>
+			<tr class="ui-widget-header ">
+				<th>Section Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<button id="create-user">Create Section</button>
+
+
+<script type="text/javascript" src="static/js/sectioncreate.js"></script>
+<script type="text/javascript" src="static/js/basicinfowidget.js"></script>
+
+
+<input type="button" value="Save Data" onclick="submitJSON()">
+
+</body>
+</html>
+
