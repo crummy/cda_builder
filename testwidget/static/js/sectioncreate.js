@@ -1,16 +1,48 @@
 
   //THIS CODE IS FOR THE DRAGGABLE WIDGET STUFF
-  $( ".drg" ).draggable({
-    revert: true
+  $( ".drg1" ).draggable({
+    revert: true,
+	drag: function(event, ui) { window.glocludgw = 1; }
+  });
+  $( ".drg2" ).draggable({
+    revert: true,
+	drag: function(event, ui) { window.glocludgw = 2; }
+  });
+  $( ".drg3" ).draggable({
+    revert: true,
+	drag: function(event, ui) { window.glocludgw = 3; }
+  });
+  $( ".drg4" ).draggable({
+    revert: true,
+	drag: function(event, ui) { window.glocludgw = 4; }
+  });
+  $( ".drg5" ).draggable({
+    revert: true,
+	drag: function(event, ui) { window.glocludgw = 5; }
   });
 
   var drpOptions = {
     drop: function(event, ui) {
       //$( "#dialog-form" ).dialog( "open" );
       var testwidget = new DemoWidget();
-
-
-
+	  
+		switch(window.glocludgw) {
+			case 1:
+				testwidget = new Widget_BasicInfo();
+				break;
+			case 2:
+				testwidget = new Widget_PresentIllness();
+				break;
+			case 3:
+				testwidget = new Widget_PastMedicalHistory();
+				break;
+			case 4:
+				testwidget = new Widget_Medications();
+				break;
+			case 5:
+				testwidget = new Widget_Allergies();
+				break;
+		}
       
       //adding the new widget to the proper section
       statman.getStationByName($(this).attr("id")).wmanager.addWidget(testwidget);
@@ -21,7 +53,10 @@
 	    statman.getStationByName($(this).attr("id")).wmanager.getWidgetByName(testwidget.name).name;
 	    var findWidget = statman.getStationByName($(this).attr("id")).wmanager.getWidgetByName(testwidget.name);
 	    for(;i < findWidget.fields.length; ++i){
-		$(this).append(findWidget.fields[i]);
+		if (i != 0){
+		$(this).append(", " + findWidget.fields[i]);
+		}else{
+		$(this).append(findWidget.fields[i]);}
 	    }
       
       	    $(this).append("</div>" + "<br>");

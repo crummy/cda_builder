@@ -9,13 +9,13 @@ var DemoWidget = function()
 	return DWidget;
 };
 
-var DemoWidgetTwo = function()
+var Widget_BasicInfo = function()
 {
 	var DWidget = new Widget();
-	DWidget.name = "DName2";
-	DWidget.addField("Placeholder Text 1");
-	DWidget.addField("Placeholder Text 2");
-	DWidget.addField("Placeholder Text 3");
+	DWidget.name = "Basic Information";
+	DWidget.addField("Age: 47 years");
+	DWidget.addField("Weight: 156 lbs");
+	DWidget.addField("Height: 6' 2''");
 	
 	return DWidget;
 };
@@ -52,7 +52,7 @@ var Widget_Medications = function()
 	return DWidget;
 };
 
-var Widget_Medications = function()
+var Widget_Allergies = function()
 {
 	var DWidget = new Widget();
 	DWidget.name = "Allergies";
