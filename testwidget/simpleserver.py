@@ -1,7 +1,6 @@
 import string, cgi, time, json, pickle
 from os import curdir, sep
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-#import pri
 
 class MyHandler(BaseHTTPRequestHandler):
 
@@ -33,7 +32,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_header("Content-length", str(len(body)))
             self.end_headers()
             self.wfile.write(body)
-def uploadPKL( self ):
+def uploadPKL( self ): # given a pickle file, return JSON data
     form = cgi.FieldStorage(fp=self.rfile, headers=self.headers, environ={'REQUEST_METHOD':'POST', 'CONTENT_TYPE':self.headers['Content-Type'], })
     content = form['pkl'].value
     try:
@@ -48,11 +47,13 @@ def uploadPKL( self ):
     self.end_headers()
     self.wfile.write(body)
     return
-def saveJSON( self ):
+def saveJSON( self ): # save JSON to PKL
     length = int(self.headers['content-length'])
+    print "loading %sb of json data..." % (length)
     content = self.rfile.read(length)
     try:
         jsondata = json.loads(content)
+        print "jsondata: %s" % (jsondata)
         picklefile = open('clinic.pkl', 'wb')
         response = pickle.dump(jsondata, picklefile)
         print "saved to clinic.pkl"
