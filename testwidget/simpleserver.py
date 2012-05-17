@@ -34,14 +34,13 @@ class MyHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(body)
 def uploadPKL( self ):
-    length = int(self.headers['content-length'])
-    content = self.rfile.read(length)
-    print "post content: %s" % (content)
+    form = cgi.FieldStorage(fp=self.rfile, headers=self.headers, environ={'REQUEST_METHOD':'POST', 'CONTENT_TYPE':self.headers['Content-Type'], })
+    content = form['pkl'].value
     try:
         pickledata = pickle.loads(content)
-        jsondata = json.dump(pickledata)
+        jsondata = json.dumps(pickledata)
         body = jsondata
-    except ValueError:
+    except:
         body = "Failure."
     self.send_response(200)
     self.send_header("Content-type", "text/html")
@@ -52,7 +51,6 @@ def uploadPKL( self ):
 def saveJSON( self ):
     length = int(self.headers['content-length'])
     content = self.rfile.read(length)
-    print "post content: %s" % (content)
     try:
         jsondata = json.loads(content)
         picklefile = open('clinic.pkl', 'wb')
