@@ -1,4 +1,5 @@
-//THIS CODE IS FOR THE DRAGGABLE WIDGET STUFF
+
+  //THIS CODE IS FOR THE DRAGGABLE WIDGET STUFF
   $( ".drg" ).draggable({
     revert: true
   });
@@ -87,17 +88,17 @@
 					bValid = bValid && checkRegexp( name, /^[a-z]([0-9a-z_])+$/i, "Username may consist of a-z, 0-9, underscores, begin with a letter." );
 					var stationName = name.val();
 					if ( bValid ) {
-
+						
 						$( this ).dialog( "close" );
 
 						$( "<li id=" + stationName + ">" + stationName + "<hr /></li>" ).droppable( drpOptions ).appendTo( "#drplist" );						
-
+						
 						//backend stuff done here
 						var newSection = new Station(stationName, new WidgetManager());
 						statman.addStation(newSection);
 						if(statman != null)
 						{
-							console.debug(stationName);
+							
 							$( "#users tbody" ).append( "<tr>" +
 								"<td>" + statman.getStationByName(stationName).name + "</td>" +
 							"</tr>" );
