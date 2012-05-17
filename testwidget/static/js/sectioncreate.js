@@ -20,6 +20,30 @@
     revert: true,
 	drag: function(event, ui) { window.glocludgw = 5; }
   });
+  $( ".drg6" ).draggable({
+    revert: true,
+	drag: function(event, ui) { window.glocludgw = 6; }
+  });
+  $( ".drg7" ).draggable({
+    revert: true,
+	drag: function(event, ui) { window.glocludgw = 7; }
+  });
+  $( ".drg8" ).draggable({
+    revert: true,
+	drag: function(event, ui) { window.glocludgw = 8; }
+  });
+  $( ".drg9" ).draggable({
+    revert: true,
+	drag: function(event, ui) { window.glocludgw = 9; }
+  });
+  $( ".drg10" ).draggable({
+    revert: true,
+	drag: function(event, ui) { window.glocludgw = 10; }
+  });
+  $( ".drg11" ).draggable({
+    revert: true,
+	drag: function(event, ui) { window.glocludgw = 11; }
+  });
 
   var drpOptions = {
     drop: function(event, ui) {
@@ -41,6 +65,24 @@
 				break;
 			case 5:
 				testwidget = new Widget_Allergies();
+				break;
+			case 6:
+				testwidget = new Widget_SocialHistory();
+				break;
+			case 7:
+				testwidget = new Widget_PhysicalExam();
+				break;
+			case 8:
+				testwidget = new Widget_Labs();
+				break;
+			case 9:
+				testwidget = new Widget_Assessment();
+				break;
+			case 10:
+				testwidget = new Widget_Plan();
+				break;
+			case 11:
+				testwidget = new Widget_Signed();
 				break;
 		}
       
